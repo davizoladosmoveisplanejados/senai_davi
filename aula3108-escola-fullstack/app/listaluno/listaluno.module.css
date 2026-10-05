@@ -1,0 +1,494 @@
+/* ========== HERO BANNER ========== */
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, var(--sesi-black-deep) 0%, var(--sesi-black) 50%, #2a0a0d 100%);
+  overflow: hidden;
+  padding: 3.5rem 2rem 5.5rem;
+  border-bottom: 4px solid var(--sesi-red);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(227, 6, 19, 0.18) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -50px;
+  left: 10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(227, 6, 19, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.heroInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.heroText {
+  max-width: 700px;
+}
+
+.heroTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(227, 6, 19, 0.18);
+  color: var(--sesi-red-light);
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(227, 6, 19, 0.35);
+}
+
+.heroTitle {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: var(--sesi-white);
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.5px;
+}
+
+.heroTitle .accent {
+  color: var(--sesi-red);
+}
+
+.heroDesc {
+  font-size: 1.05rem;
+  color: var(--sesi-gray-300);
+  line-height: 1.6;
+}
+
+.btnHero {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--sesi-red);
+  color: var(--sesi-white);
+  padding: 13px 26px;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 14px rgba(227, 6, 19, 0.35);
+  white-space: nowrap;
+}
+
+.btnHero:hover {
+  background: var(--sesi-red-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(227, 6, 19, 0.45);
+}
+
+/* ========== MAIN CONTENT ========== */
+.mainSection {
+  background: var(--sesi-gray-100);
+  padding: 0 2rem 5rem;
+  min-height: 60vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: -40px auto 0;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ========== TABLE CARD ========== */
+.tableCard {
+  background: var(--sesi-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--sesi-gray-200);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.75rem 2rem;
+  border-bottom: 1px solid var(--sesi-gray-200);
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cardIconBadge {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: rgba(227, 6, 19, 0.1);
+  color: var(--sesi-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cardTitle {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--sesi-black);
+  letter-spacing: -0.3px;
+}
+
+.cardSubtitle {
+  font-size: 0.875rem;
+  color: var(--sesi-gray-500);
+  margin-top: 2px;
+}
+
+.badgeTotal {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--sesi-gray-100);
+  color: var(--sesi-black);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: 1px solid var(--sesi-gray-200);
+}
+
+.badgeTotalDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2E7D32;
+}
+
+/* ========== TABLE STYLES ========== */
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table thead {
+  background: var(--sesi-black-deep);
+  color: var(--sesi-white);
+}
+
+.table thead tr th {
+  padding: 1.1rem 1.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  color: var(--sesi-gray-300);
+  border-bottom: 2px solid var(--sesi-red);
+  white-space: nowrap;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid var(--sesi-gray-200);
+  transition: background var(--transition-fast);
+}
+
+.table tbody tr:hover {
+  background: rgba(227, 6, 19, 0.03);
+}
+
+.table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.table td {
+  padding: 1.25rem 1.5rem;
+  font-size: 0.95rem;
+  color: var(--sesi-black);
+  vertical-align: middle;
+}
+
+/* Specific Cell Badges & Enhancements */
+.idBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--sesi-gray-500);
+  background: var(--sesi-gray-100);
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--sesi-gray-200);
+  min-width: 36px;
+}
+
+.studentCell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatarMini {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(227, 6, 19, 0.1), rgba(227, 6, 19, 0.2));
+  color: var(--sesi-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  border: 1.5px solid rgba(227, 6, 19, 0.2);
+}
+
+.studentName {
+  font-weight: 700;
+  color: var(--sesi-black);
+}
+
+.serieBadge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(227, 6, 19, 0.08);
+  color: var(--sesi-red);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 4px 12px;
+  border-radius: 50px;
+  border: 1px solid rgba(227, 6, 19, 0.2);
+  white-space: nowrap;
+}
+
+.raBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: monospace;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--sesi-black);
+  background: var(--sesi-gray-100);
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--sesi-gray-300);
+  letter-spacing: 0.5px;
+}
+
+/* ========== ACTION BUTTONS ========== */
+.actionsCell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btnEdit,
+.btnDelete {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btnEdit {
+  background: rgba(30, 100, 200, 0.1);
+  color: #1a6fc4;
+  border: 1px solid rgba(30, 100, 200, 0.25);
+}
+
+.btnEdit:hover {
+  background: #1a6fc4;
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(26, 111, 196, 0.35);
+}
+
+.btnDelete {
+  background: rgba(227, 6, 19, 0.08);
+  color: var(--sesi-red);
+  border: 1px solid rgba(227, 6, 19, 0.25);
+}
+
+.btnDelete:hover {
+  background: var(--sesi-red);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(227, 6, 19, 0.35);
+}
+
+/* ========== TABLE FOOTER ========== */
+.tableFooter {
+  padding: 1.25rem 2rem;
+  background: #fafafa;
+  border-top: 1px solid var(--sesi-gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--sesi-gray-500);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.statusIndicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--sesi-gray-500);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 992px) {
+  .heroInner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .heroTitle {
+    font-size: 2.2rem;
+  }
+}
+
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 2.5rem 1.25rem 4.5rem;
+  }
+
+  .heroTitle {
+    font-size: 1.85rem;
+  }
+
+  .mainSection {
+    padding: 0 1rem 3rem;
+  }
+
+  .cardHeader {
+    padding: 1.25rem;
+  }
+
+  .table td,
+  .table thead tr th {
+    padding: 0.9rem 1rem;
+  }
+
+  .tableFooter {
+    padding: 1rem 1.25rem;
+  }
+}
+
+/* ========== CAMPO DE PESQUISA ========== */
+.searchWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.searchIcon {
+  position: absolute;
+  left: 2.1rem;
+  color: var(--sesi-red);
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.65rem 2.75rem 0.65rem 2.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: black;
+  font-size: 0.92rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.searchInput:focus {
+  border-color: var(--sesi-red);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(227, 6, 19, 0.15);
+}
+
+.searchHint {
+  position: absolute;
+  right: 2.2rem;
+  font-size: 0.75rem;
+  color: rgba(255, 165, 0, 0.85);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.searchClear {
+  position: absolute;
+  right: 2.1rem;
+  background: rgba(227, 6, 19, 0.18);
+  border: 1px solid rgba(227, 6, 19, 0.35);
+  border-radius: 50%;
+  color: var(--sesi-red);
+  width: 22px;
+  height: 22px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.15s;
+  line-height: 1;
+}
+
+.searchClear:hover {
+  background: rgba(227, 6, 19, 0.35);
+  transform: scale(1.1);
+}
