@@ -1,21 +1,37 @@
 'use client';
-import { useState } from "react";
-import Header from "../components/header";
+import { useState, useEffect, use } from "react";
+import Header from "../../components/header";
 import Link from "next/link";
-import styles from "./cadaluno.module.css";
-import { redirect } from "next/navigation";
+import styles from "./editaluno.module.css";
+import { useRouter } from "next/navigation";
 
 
-export default function CadAluno() {
+export default function EditAlunoPage({ params }) {
+    const { id } = use(params);
+    const router = useRouter();
     const [nome, setNome] = useState('');
     const [idade, setIdade] = useState('');
     const [serie, setSerie] = useState('');
     const [ra, setRa] = useState('');
 
-    async function cadastrarAluno(evento) {
+    useEffect(() => {
+        async function carregarAluno() {
+            const resposta = await fetch(`/api/alunos/${id}`);
+            if (resposta.ok) {
+                const dados = await resposta.json();
+                setNome(dados.nome || '');
+                setIdade(dados.idade || '');
+                setSerie(dados.serie || '');
+                setRa(dados.ra || '');
+            }
+        }
+        if (id) carregarAluno();
+    }, [id]);
+
+    async function editarAluno(evento) {
         evento.preventDefault();
-        const resposta = await fetch("/api/alunos", {
-            method: "POST",
+        const resposta = await fetch(`/api/alunos/${id}`, {
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -29,7 +45,7 @@ export default function CadAluno() {
         const dados = await resposta.json();
         alert(dados.mensagem || dados.erro);
         if (resposta.ok) {
-            redirect("/listaluno")
+            router.push("/listaluno");
         }
     }
 
@@ -58,11 +74,11 @@ export default function CadAluno() {
                         Gestão Acadêmica
                     </span>
                     <h2 className={styles.heroTitle}>
-                        Cadastro de <span className="accent">Alunos</span>
+                        Edição de <span className="accent">Alunos</span>
                     </h2>
                     <p className={styles.heroDesc}>
-                        Registre novos estudantes no sistema escolar do SESI. Preencha os dados
-                        abaixo para emitir o registro e liberar o acesso às notas e turmas.
+                        Edite os dados dos estudantes no sistema escolar do SESI. Preencha os dados
+                        abaixo para atualizar o registro e liberar o acesso às notas e turmas.
                     </p>
                 </div>
             </section>
@@ -82,11 +98,11 @@ export default function CadAluno() {
                             </div>
                             <div>
                                 <h3 className={styles.cardTitle}>Dados Cadastrais</h3>
-                                <p className={styles.cardSubtitle}>Insira as informações do novo estudante</p>
+                                <p className={styles.cardSubtitle}>Atualize as informações do estudante</p>
                             </div>
                         </div>
 
-                        <form onSubmit={cadastrarAluno} className={styles.form}>
+                        <form onSubmit={editarAluno} className={styles.form}>
                             {/* CAMPO: NOME */}
                             <div className={styles.inputGroup}>
                                 <label htmlFor="nome" className={styles.label}>
@@ -199,7 +215,7 @@ export default function CadAluno() {
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                         <polyline points="20 6 9 17 4 12" />
                                     </svg>
-                                    Cadastrar Aluno
+                                    Atualizar Aluno
                                 </button>
                                 <button type="button" className={styles.btnReset}>
                                     Limpar
