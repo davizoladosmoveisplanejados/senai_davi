@@ -1,44 +1,68 @@
 'use client';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../components/header";
 import Link from "next/link";
 import styles from "./notaluno.module.css";
+import { useRouter } from "next/navigation";
 
 export default function NotAluno() {
-    // Alunos já cadastrados no sistema conforme os dados já codados
-    const alunosCadastrados = [
-        "Bianca Pasini"
-    ];
-
-    const [nome, setNome] = useState('');
+    const router = useRouter();
+    const [alunos, setAlunos] = useState([]);
+    const [id_aluno, setIdAluno] = useState('');
     const [t1, setT1] = useState('');
     const [t2, setT2] = useState('');
     const [n1, setN1] = useState('');
     const [n2, setN2] = useState('');
     const [n3, setN3] = useState('');
-    const [sucesso, setSucesso] = useState(false);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (!nome) {
+    useEffect(() => {
+        buscarAlunos();
+    }, []);
+
+    async function buscarAlunos() {
+        const resposta = await fetch('/api/alunos');
+        const dados = await resposta.json();
+        setAlunos(dados);
+    }
+
+    async function cadastrarNota(evento) {
+        evento.preventDefault();
+        if (!id_aluno) {
+            alert('Selecione um aluno!');
             return;
         }
 
-        setSucesso(true);
-        setTimeout(() => {
-            setSucesso(false);
-        }, 4000);
-    };
+        const resposta = await fetch("/api/notas", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                id_aluno,
+                t1,
+                t2,
+                n1,
+                n2,
+                n3
+            })
+        });
+        const dados = await resposta.json();
+        alert(dados.mensagem || dados.erro);
+        if (resposta.ok) {
+            router.push("/listanota");
+        }
+    }
 
     const handleReset = () => {
-        setNome('');
+        setIdAluno('');
         setT1('');
         setT2('');
         setN1('');
         setN2('');
         setN3('');
-        setSucesso(false);
     };
+
+    const alunoSelecionado = alunos.find(a => String(a.id_aluno) === String(id_aluno));
 
     const getInitials = (name) => {
         if (!name) return 'AL';
@@ -92,10 +116,10 @@ export default function NotAluno() {
                             </div>
                         </div>
 
-                        <form onSubmit={handleSubmit} className={styles.form}>
-                            {/* CAMPO: NOME COM ESCOLHA ENTRE ALUNOS CADASTRADOS */}
+                        <form onSubmit={cadastrarNota} className={styles.form}>
+                            {/* CAMPO: ALUNO (SELECT da API) */}
                             <div className={styles.inputGroup}>
-                                <label htmlFor="nome" className={styles.label}>
+                                <label htmlFor="aluno" className={styles.label}>
                                     Nome do Aluno: <span className={styles.required}>*</span>
                                 </label>
                                 <div className={styles.inputWrapper}>
@@ -106,16 +130,16 @@ export default function NotAluno() {
                                         </svg>
                                     </span>
                                     <select
-                                        id="nome"
+                                        id="aluno"
                                         className={styles.select}
-                                        value={nome}
-                                        onChange={(e) => setNome(e.target.value)}
+                                        value={id_aluno}
+                                        onChange={(e) => setIdAluno(e.target.value)}
                                         required
                                     >
                                         <option value="">Selecione um aluno cadastrado...</option>
-                                        {alunosCadastrados.map((aluno, index) => (
-                                            <option key={index} value={aluno}>
-                                                {aluno}
+                                        {alunos.map((aluno) => (
+                                            <option key={aluno.id_aluno} value={aluno.id_aluno}>
+                                                {aluno.nome} — RA: {aluno.ra}
                                             </option>
                                         ))}
                                     </select>
@@ -149,6 +173,7 @@ export default function NotAluno() {
                                             placeholder="0 a 10"
                                             value={t1}
                                             onChange={(e) => setT1(e.target.value)}
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -174,6 +199,7 @@ export default function NotAluno() {
                                             placeholder="0 a 10"
                                             value={t2}
                                             onChange={(e) => setT2(e.target.value)}
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -206,6 +232,7 @@ export default function NotAluno() {
                                             placeholder="0 a 10"
                                             value={n1}
                                             onChange={(e) => setN1(e.target.value)}
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -231,6 +258,7 @@ export default function NotAluno() {
                                             placeholder="0 a 10"
                                             value={n2}
                                             onChange={(e) => setN2(e.target.value)}
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -256,6 +284,7 @@ export default function NotAluno() {
                                             placeholder="0 a 10"
                                             value={n3}
                                             onChange={(e) => setN3(e.target.value)}
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -274,17 +303,6 @@ export default function NotAluno() {
                                 </button>
                             </div>
                         </form>
-
-                        {/* MENSAGEM DE SUCESSO */}
-                        {sucesso && (
-                            <div className={styles.alertSuccess}>
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                                    <polyline points="22 4 12 14.01 9 11.01" />
-                                </svg>
-                                <span><strong>Notas salvas com sucesso!</strong> As avaliações foram vinculadas ao estudante.</span>
-                            </div>
-                        )}
                     </div>
 
                     {/* COLUNA LATERAL COM PRÉVIA */}
@@ -301,14 +319,14 @@ export default function NotAluno() {
                             <div className={styles.previewBody}>
                                 <div className={styles.studentPreviewHeader}>
                                     <div className={styles.previewAvatar}>
-                                        {getInitials(nome)}
+                                        {getInitials(alunoSelecionado?.nome)}
                                     </div>
                                     <div>
                                         <h4 className={styles.previewStudentName}>
-                                            {nome || "Selecione um aluno"}
+                                            {alunoSelecionado?.nome || "Selecione um aluno"}
                                         </h4>
                                         <p className={styles.previewStudentSubtitle}>
-                                            {nome ? "Aluno Selecionado" : "Nenhum aluno escolhido"}
+                                            {alunoSelecionado ? `RA: ${alunoSelecionado.ra}` : "Nenhum aluno escolhido"}
                                         </p>
                                     </div>
                                 </div>
@@ -391,4 +409,4 @@ export default function NotAluno() {
             </footer>
         </>
     );
-};
+}

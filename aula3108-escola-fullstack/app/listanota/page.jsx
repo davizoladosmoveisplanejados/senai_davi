@@ -1,18 +1,47 @@
 'use client';
+import { useState, useEffect } from 'react';
 import Header from "../components/header";
 import Link from "next/link";
 import styles from "./listanota.module.css";
+import { useRouter } from "next/navigation";
 
 export default function ListNotas() {
-    // Aluno e notas já codados pelo usuário
-    const alunoNotas = {
-        nome: "Davi de Sousa",
-        t1: 10,
-        t2: 10,
-        n1: 10,
-        n2: 10,
-        n3: 10
-    };
+    const [notas, setNotas] = useState([]);
+    const router = useRouter();
+
+    useEffect(() => {
+        buscarNotas();
+    }, []);
+
+    async function buscarNotas() {
+        const resposta = await fetch('/api/notas');
+        const dados = await resposta.json();
+        setNotas(dados);
+    }
+
+    function editarNota(id) {
+        router.push(`/editanota/${id}`);
+    }
+
+    async function excluirNota(event) {
+        event.preventDefault();
+        if (!confirm("Deseja realmente excluir esta nota?")) {
+            return;
+        }
+        const resposta = await fetch("/api/notas", {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                id_nota: event.target.dataset.id,
+            }),
+        });
+
+        const dados = await resposta.json();
+        alert(dados.mensagem || dados.erro);
+        buscarNotas();
+    }
 
     return (
         <>
@@ -53,7 +82,7 @@ export default function ListNotas() {
             <main className={styles.mainSection}>
                 <div className={styles.container}>
                     <div className={styles.tableCard}>
-                        
+
                         {/* CABEÇALHO DO CARD */}
                         <div className={styles.cardHeader}>
                             <div className={styles.headerLeft}>
@@ -70,7 +99,7 @@ export default function ListNotas() {
 
                             <span className={styles.badgeTotal}>
                                 <span className={styles.badgeTotalDot}></span>
-                                Registros Oficiais
+                                Total: {notas.length} {notas.length === 1 ? 'registro' : 'registros'}
                             </span>
                         </div>
 
@@ -85,32 +114,44 @@ export default function ListNotas() {
                                         <th>1ª Nota</th>
                                         <th>2ª Nota</th>
                                         <th>3ª Nota</th>
+                                        <th>Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            <div className={styles.studentCell}>
-                                                <div className={styles.avatarMini}>DS</div>
-                                                <span className={styles.studentName}>{alunoNotas.nome}</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <span className={styles.gradePill}>{alunoNotas.t1}</span>
-                                        </td>
-                                        <td>
-                                            <span className={styles.gradePill}>{alunoNotas.t2}</span>
-                                        </td>
-                                        <td>
-                                            <span className={styles.gradePill}>{alunoNotas.n1}</span>
-                                        </td>
-                                        <td>
-                                            <span className={styles.gradePill}>{alunoNotas.n2}</span>
-                                        </td>
-                                        <td>
-                                            <span className={styles.gradePill}>{alunoNotas.n3}</span>
-                                        </td>
-                                    </tr>
+                                    {notas.map((nota) => {
+                                        const iniciais = nota.nome
+                                            ? nota.nome.trim().split(' ').filter(p => p).map(p => p[0]).slice(0, 2).join('').toUpperCase()
+                                            : 'AL';
+                                        return (
+                                            <tr key={nota.id_nota}>
+                                                <td>
+                                                    <div className={styles.studentCell}>
+                                                        <div className={styles.avatarMini}>{iniciais}</div>
+                                                        <span className={styles.studentName}>{nota.nome}</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <span className={styles.gradePill}>{nota.t1}</span>
+                                                </td>
+                                                <td>
+                                                    <span className={styles.gradePill}>{nota.t2}</span>
+                                                </td>
+                                                <td>
+                                                    <span className={styles.gradePill}>{nota.n1}</span>
+                                                </td>
+                                                <td>
+                                                    <span className={styles.gradePill}>{nota.n2}</span>
+                                                </td>
+                                                <td>
+                                                    <span className={styles.gradePill}>{nota.n3}</span>
+                                                </td>
+                                                <td>
+                                                    <button onClick={() => editarNota(nota.id_nota)}>Editar</button>
+                                                    <button onClick={(e) => excluirNota(e)} data-id={nota.id_nota}>Excluir</button>
+                                                </td>
+                                            </tr>
+                                        );
+                                    })}
                                 </tbody>
                             </table>
                         </div>

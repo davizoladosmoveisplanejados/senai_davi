@@ -1,0 +1,176 @@
+/* ========== CONTAINER PRINCIPAL ========== */
+.container {
+  background: var(--sesi-gray-100);
+  min-height: 60vh;
+  padding: 3rem 2rem 5rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* ========== CARD CENTRAL ========== */
+.card {
+  background: var(--sesi-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--sesi-gray-200);
+  box-shadow: var(--shadow-xl);
+  width: 100%;
+  max-width: 680px;
+  overflow: hidden;
+}
+
+/* ========== TÍTULO E SUBTÍTULO ========== */
+.title {
+  font-size: 1.65rem;
+  font-weight: 900;
+  color: var(--sesi-white);
+  letter-spacing: -0.3px;
+  padding: 2rem 2.5rem 0;
+  background: linear-gradient(135deg, var(--sesi-black-deep) 0%, var(--sesi-black) 50%, #2a0a0d 100%);
+  position: relative;
+  z-index: 1;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: var(--sesi-gray-300);
+  padding: 0.5rem 2.5rem 2rem;
+  background: linear-gradient(135deg, var(--sesi-black-deep) 0%, var(--sesi-black) 50%, #2a0a0d 100%);
+  border-bottom: 4px solid var(--sesi-red);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.subtitle strong {
+  color: var(--sesi-white);
+}
+
+/* ========== FORMULÁRIO ========== */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+  padding: 2.5rem;
+}
+
+/* ========== SECTION TITLE ========== */
+.sectionTitle {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--sesi-gray-400);
+  border-bottom: 1px solid var(--sesi-gray-200);
+  padding-bottom: 0.5rem;
+  margin-bottom: -0.25rem;
+}
+
+/* ========== LINHAS DE FORMULÁRIO ========== */
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.formRow3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.25rem;
+}
+
+/* ========== INPUT GROUP ========== */
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.inputGroup label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--sesi-black);
+}
+
+.inputGroup input {
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--sesi-gray-100);
+  border: 1.5px solid var(--sesi-gray-200);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--sesi-black);
+  transition: all var(--transition-fast);
+}
+
+.inputGroup input:hover {
+  border-color: var(--sesi-gray-300);
+}
+
+.inputGroup input:focus {
+  background: var(--sesi-white);
+  border-color: var(--sesi-red);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(227, 6, 19, 0.12);
+}
+
+.inputGroup input::placeholder {
+  color: var(--sesi-gray-400);
+  font-size: 0.9rem;
+}
+
+/* ========== BOTÃO SUBMIT ========== */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--sesi-red);
+  color: var(--sesi-white);
+  padding: 13px 28px;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 12px rgba(227, 6, 19, 0.25);
+  margin-top: 0.5rem;
+  width: 100%;
+  font-family: inherit;
+}
+
+.button:hover {
+  background: var(--sesi-red-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(227, 6, 19, 0.35);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+/* ========== RESPONSIVO ========== */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem 1rem 3rem;
+    align-items: flex-start;
+  }
+
+  .title {
+    font-size: 1.4rem;
+    padding: 1.5rem 1.5rem 0;
+  }
+
+  .subtitle {
+    padding: 0.5rem 1.5rem 1.5rem;
+  }
+
+  .form {
+    padding: 1.5rem;
+  }
+
+  .formRow, .formRow3 {
+    grid-template-columns: 1fr;
+  }
+}

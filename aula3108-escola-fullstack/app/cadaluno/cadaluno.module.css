@@ -82,10 +82,10 @@
 }
 
 .contentGrid {
-  max-width: 1100px;
+  max-width: 720px;
   margin: -40px auto 0;
   display: grid;
-  grid-template-columns: 1.45fr 1fr;
+  grid-template-columns: 1fr;
   gap: 2rem;
   position: relative;
   z-index: 10;

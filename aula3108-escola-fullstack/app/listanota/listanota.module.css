@@ -303,6 +303,40 @@
   border-color: #EF9A9A;
 }
 
+/* ========== BOTÕES DE AÇÃO ========== */
+.table tbody td button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  margin-right: 6px;
+  border: 1.5px solid var(--sesi-gray-200);
+  background: transparent;
+  color: var(--sesi-gray-500);
+  font-family: inherit;
+}
+
+.table tbody td button:first-child:hover {
+  background: rgba(227, 6, 19, 0.07);
+  border-color: rgba(227, 6, 19, 0.3);
+  color: var(--sesi-red);
+}
+
+.table tbody td button:last-child {
+  border-color: rgba(220, 38, 38, 0.25);
+  color: #dc2626;
+}
+
+.table tbody td button:last-child:hover {
+  background: rgba(220, 38, 38, 0.1);
+  border-color: #dc2626;
+}
+
 /* ========== TABLE FOOTER ========== */
 .tableFooter {
   padding: 1.25rem 2rem;

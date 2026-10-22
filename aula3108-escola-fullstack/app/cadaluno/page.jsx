@@ -33,13 +33,7 @@ export default function CadAluno() {
         }
     }
 
-    // Obter iniciais do nome para o avatar da prévia
-    const getInitials = (name) => {
-        if (!name) return 'AL';
-        const parts = name.trim().split(' ');
-        if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase();
-        return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
-    };
+
 
     return (
         <>
@@ -208,82 +202,6 @@ export default function CadAluno() {
                         </form>
                     </div>
 
-                    {/* COLUNA LATERAL: PRÉVIA E INFORMAÇÕES */}
-                    <div className={styles.sidebarColumn}>
-
-                        {/* CARTÃO DE PRÉVIA EM TEMPO REAL */}
-                        <div className={styles.previewCard}>
-                            <div className={styles.previewHeader}>
-                                <span className={styles.previewBrand}>
-                                    <span className="accent">SESI</span> ID
-                                </span>
-                                <span className={styles.previewBadge}>Prévia do Cartão</span>
-                            </div>
-                            <div className={styles.previewBody}>
-                                <div className={styles.previewAvatar}>
-                                    {getInitials(nome)}
-                                </div>
-                                <h4 className={styles.previewName}>
-                                    {nome || "Nome do Aluno"}
-                                </h4>
-                                <p className={styles.previewSubtitle}>
-                                    {serie || "Série / Turma a definir"}
-                                </p>
-
-                                <div className={styles.previewDetails}>
-                                    <div className={styles.previewDetailItem}>
-                                        <div className={styles.previewDetailLabel}>RA</div>
-                                        <div className={styles.previewDetailValue}>
-                                            {ra || "—"}
-                                        </div>
-                                    </div>
-                                    <div className={styles.previewDetailItem}>
-                                        <div className={styles.previewDetailLabel}>Idade</div>
-                                        <div className={styles.previewDetailValue}>
-                                            {idade ? `${idade} anos` : "—"}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={styles.previewFooter}>
-                                <span className={styles.statusActive}>
-                                    <span className={styles.statusDot}></span>
-                                    {ra ? "Pronto p/ Matrícula" : "Aguardando Dados"}
-                                </span>
-                                <span>SESI Escola 2026</span>
-                            </div>
-                        </div>
-
-                        {/* CARTÃO DE DICAS */}
-                        <div className={styles.infoCard}>
-                            <h4 className={styles.infoTitle}>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                    <circle cx="12" cy="12" r="10" />
-                                    <line x1="12" y1="16" x2="12" y2="12" />
-                                    <line x1="12" y1="8" x2="12.01" y2="8" />
-                                </svg>
-                                Instruções Rápidas
-                            </h4>
-                            <ul className={styles.infoList}>
-                                <li className={styles.infoItem}>
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                                        <polyline points="20 6 9 17 4 12" />
-                                    </svg>
-                                    <span>Certifique-se de que o RA seja exclusivo do estudante.</span>
-                                </li>
-                                <li className={styles.infoItem}>
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                                        <polyline points="20 6 9 17 4 12" />
-                                    </svg>
-                                    <span>Após o cadastro, o aluno estará disponível para lançamento de notas.</span>
-                                </li>
-                            </ul>
-                            <Link href="/listaluno" className={styles.linkButton}>
-                                Consultar Lista de Alunos →
-                            </Link>
-                        </div>
-
-                    </div>
                 </div>
             </main>
 
