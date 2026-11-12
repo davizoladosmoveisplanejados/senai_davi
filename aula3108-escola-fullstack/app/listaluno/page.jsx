@@ -71,41 +71,43 @@ export default function ListAluno() {
                         />
 
                         <div className={styles.total}>
-                            Total: 1 aluno
+                            Total: {alunos.length} {alunos.length === 1 ? 'aluno' : 'alunos'}
                         </div>
                     </div>
 
-                    <table className={styles.table}>
-                        <thead>
-                            <tr >
-                                <th>ID</th>
-                                <th>Nome</th>
-                                <th>Idade</th>
-                                <th>Série</th>
-                                <th>RA</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
+                    <div className={styles.tableWrapper}>
+                        <table className={styles.table}>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>Idade</th>
+                                    <th>Série</th>
+                                    <th>RA</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
 
-                        <tbody>
-                            {
-                                alunos.map((aluno) => {
-                                    return (
-                                        <tr style={{ color: 'white', padding: '20px' }} key={aluno.id_aluno}>
-                                            <td>{aluno.id_aluno}</td>
-                                            <td>{aluno.nome}</td>
-                                            <td>{aluno.idade}</td>
-                                            <td>{aluno.serie}</td>
-                                            <td>{aluno.ra}</td>
-                                            <td>
-                                                <button onClick={() => editarAlunos(aluno.id_aluno)}>Editar</button>
-                                                <button onClick={(e) => excluirAlunos(e)} data-id={aluno.id_aluno}>Excluir</button>
-                                            </td>
-                                        </tr>)
-                                })
-                            }
-                        </tbody>
-                    </table>
+                            <tbody>
+                                {
+                                    alunos.map((aluno) => {
+                                        return (
+                                            <tr key={aluno.id_aluno}>
+                                                <td data-label="ID">{aluno.id_aluno}</td>
+                                                <td data-label="Nome">{aluno.nome}</td>
+                                                <td data-label="Idade">{aluno.idade}</td>
+                                                <td data-label="Série">{aluno.serie}</td>
+                                                <td data-label="RA">{aluno.ra}</td>
+                                                <td>
+                                                    <button onClick={() => editarAlunos(aluno.id_aluno)}>Editar</button>
+                                                    <button onClick={(e) => excluirAlunos(e)} data-id={aluno.id_aluno}>Excluir</button>
+                                                </td>
+                                            </tr>)
+                                    })
+                                }
+                            </tbody>
+                        </table>
+                    </div>
 
                 </section>
             </main>

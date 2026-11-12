@@ -485,6 +485,7 @@
   .heroContent {
     flex-direction: column;
     text-align: center;
+    gap: 2rem;
   }
 
   .heroText {
@@ -496,17 +497,20 @@
   }
 
   .heroImageWrapper {
-    max-width: 100%;
+    max-width: 560px;
     width: 100%;
+    margin: 0 auto;
   }
 
   .statsInner {
     grid-template-columns: repeat(2, 1fr);
+    margin-top: -20px;
   }
 
   .aboutInner {
     flex-direction: column;
     text-align: center;
+    gap: 2.5rem;
   }
 
   .aboutImageWrapper {
@@ -523,33 +527,150 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+  .hero {
+    padding: 3rem 1.25rem;
+    min-height: unset;
+  }
+
   .heroTitle {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
+  }
+
+  .heroDesc {
+    font-size: 1rem;
+  }
+
+  .about {
+    padding: 4rem 1.25rem;
+  }
+
+  .features {
+    padding: 4rem 1.25rem;
+  }
+
+  .cta {
+    padding: 3.5rem 1.25rem;
+  }
+
+  .ctaTitle {
+    font-size: 2rem;
+  }
+
+  .ctaDesc {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 2.5rem 1rem;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .heroDesc {
+    font-size: 0.95rem;
   }
 
   .heroBtns {
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 24px;
+  }
+
+  .heroImageWrapper {
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
   }
 
   .statsInner {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: -16px;
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+
+  .statCard {
+    padding: 1.25rem 1rem;
+  }
+
+  .statNumber {
+    font-size: 2rem;
+  }
+
+  .about {
+    padding: 3rem 1rem;
+  }
+
+  .aboutInner {
+    gap: 2rem;
   }
 
   .sectionTitle {
-    font-size: 1.8rem;
+    font-size: 1.75rem;
+  }
+
+  .sectionDesc {
+    font-size: 0.95rem;
+  }
+
+  .features {
+    padding: 3rem 1rem;
   }
 
   .featuresGrid {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .featuresHeader {
+    margin-bottom: 2rem;
   }
 
   .galleryGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .cta {
+    padding: 3rem 1rem;
+  }
+
   .ctaTitle {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+  }
+
+  .ctaDesc {
+    font-size: 0.95rem;
+  }
+
+  .btnWhite {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 24px;
+  }
+}
+
+@media (max-width: 400px) {
+  .heroTitle {
+    font-size: 1.75rem;
+  }
+
+  .statsInner {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
   }
 }

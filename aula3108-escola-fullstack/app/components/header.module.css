@@ -1,0 +1,295 @@
+/* ========== HEADER GERAL ========== */
+.header {
+  background: var(--sesi-black-deep);
+  color: var(--sesi-white);
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
+  border-bottom: 2px solid rgba(227, 6, 19, 0.4);
+}
+
+.headerInner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 72px;
+  position: relative;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--sesi-white);
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+.logo:hover {
+  opacity: 0.9;
+}
+
+.accent {
+  color: var(--sesi-red);
+}
+
+/* ========== BOTÃO HAMBURGER SANDUÍCHE ========== */
+.menuBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  padding: 8px 16px;
+  border-radius: 50px;
+  color: var(--sesi-white);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: all var(--transition-fast);
+  z-index: 1002;
+}
+
+.menuBtn:hover {
+  background: rgba(227, 6, 19, 0.15);
+  border-color: var(--sesi-red);
+  color: var(--sesi-white);
+  transform: translateY(-1px);
+}
+
+.menuBtnText {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.hamburgerIcon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4.5px;
+  width: 20px;
+  height: 18px;
+}
+
+.bar {
+  display: block;
+  width: 20px;
+  height: 2.5px;
+  background: var(--sesi-white);
+  border-radius: 2px;
+  transition: all var(--transition-fast);
+  transform-origin: center;
+}
+
+/* Animação do ícone quando aberto */
+.menuBtnOpen .bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+  background: var(--sesi-red-light);
+}
+
+.menuBtnOpen .bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.menuBtnOpen .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+  background: var(--sesi-red-light);
+}
+
+.menuBtnOpen {
+  background: rgba(227, 6, 19, 0.2);
+  border-color: var(--sesi-red);
+}
+
+/* ========== OVERLAY COM DESFOQUE ========== */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ========== GAVETA LATERAL (SIDEBAR DRAWER) ========== */
+.drawer {
+  position: fixed;
+  top: 0;
+  right: -360px;
+  width: min(340px, 88vw);
+  height: 100vh;
+  background: linear-gradient(180deg, #121212 0%, #1a1a1a 100%);
+  border-left: 2px solid rgba(227, 6, 19, 0.35);
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.6);
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+}
+
+.drawerOpen {
+  right: 0;
+}
+
+/* TOPO DA GAVETA */
+.drawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 1.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.drawerTitle {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--sesi-white);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.drawerCloseBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--sesi-gray-300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.drawerCloseBtn:hover {
+  background: var(--sesi-red);
+  color: var(--sesi-white);
+  border-color: var(--sesi-red);
+  transform: rotate(90deg);
+}
+
+/* CONTEÚDO DOS LINKS AGRUPADOS */
+.drawerContent {
+  padding: 1.25rem 1.25rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  flex: 1;
+}
+
+.menuSection {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sectionLabel {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--sesi-red-light);
+  padding: 0 0.75rem 0.4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 4px;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  color: var(--sesi-gray-300);
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.navLink:hover {
+  color: var(--sesi-white);
+  background: rgba(227, 6, 19, 0.12);
+  transform: translateX(4px);
+}
+
+.navLinkActive {
+  background: var(--sesi-red);
+  color: var(--sesi-white);
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(227, 6, 19, 0.35);
+}
+
+.navLinkActive:hover {
+  background: var(--sesi-red-dark);
+  color: var(--sesi-white);
+}
+
+.linkIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sesi-gray-400);
+  transition: color var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.navLink:hover .linkIcon {
+  color: var(--sesi-red-light);
+}
+
+.navLinkActive .linkIcon {
+  color: var(--sesi-white);
+}
+
+/* RODAPÉ DO MENU */
+.drawerFooter {
+  padding: 1.25rem 1.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.78rem;
+  color: var(--sesi-gray-500);
+  text-align: center;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .headerInner {
+    padding: 0 1.25rem;
+    height: 64px;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .menuBtnText {
+    display: none;
+  }
+
+  .menuBtn {
+    padding: 8px 12px;
+  }
+}
+

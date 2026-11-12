@@ -633,13 +633,13 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .hero {
     padding: 2.5rem 1.25rem 4.5rem;
   }
 
   .heroTitle {
-    font-size: 1.85rem;
+    font-size: 2rem;
   }
 
   .mainSection {
@@ -647,7 +647,37 @@
   }
 
   .formCard {
-    padding: 1.5rem;
+    padding: 1.75rem 1.5rem;
+  }
+
+  .formRow2 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .formRow3 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 2rem 1rem 4rem;
+  }
+
+  .heroTitle {
+    font-size: 1.75rem;
+  }
+
+  .heroDesc {
+    font-size: 0.95rem;
+  }
+
+  .mainSection {
+    padding: 0 0.75rem 3rem;
+  }
+
+  .formCard {
+    padding: 1.25rem 1rem;
   }
 
   .formRow2, .formRow3 {
@@ -661,5 +691,30 @@
 
   .btnPrimary, .btnReset {
     width: 100%;
+  }
+
+  .mediaCalculationBox {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .mediaValueWrapper {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 400px) {
+  .heroTitle {
+    font-size: 1.5rem;
+  }
+
+  .cardTitle {
+    font-size: 1.25rem;
+  }
+
+  .mediaBigNumber {
+    font-size: 1.8rem;
   }
 }

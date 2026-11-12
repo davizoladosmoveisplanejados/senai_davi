@@ -174,3 +174,28 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem 0.5rem 2.5rem;
+  }
+
+  .card {
+    border-radius: var(--radius-md);
+  }
+
+  .title {
+    font-size: 1.2rem;
+    padding: 1.25rem 1.25rem 0;
+  }
+
+  .subtitle {
+    padding: 0.4rem 1.25rem 1.25rem;
+    font-size: 0.85rem;
+  }
+
+  .form {
+    padding: 1.25rem;
+    gap: 1rem;
+  }
+}

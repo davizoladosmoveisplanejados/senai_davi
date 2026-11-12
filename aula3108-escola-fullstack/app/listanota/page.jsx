@@ -124,25 +124,25 @@ export default function ListNotas() {
                                             : 'AL';
                                         return (
                                             <tr key={nota.id_nota}>
-                                                <td>
+                                                <td data-label="Aluno">
                                                     <div className={styles.studentCell}>
                                                         <div className={styles.avatarMini}>{iniciais}</div>
                                                         <span className={styles.studentName}>{nota.nome}</span>
                                                     </div>
                                                 </td>
-                                                <td>
+                                                <td data-label="1º Trab.">
                                                     <span className={styles.gradePill}>{nota.t1}</span>
                                                 </td>
-                                                <td>
+                                                <td data-label="2º Trab.">
                                                     <span className={styles.gradePill}>{nota.t2}</span>
                                                 </td>
-                                                <td>
+                                                <td data-label="1ª Nota">
                                                     <span className={styles.gradePill}>{nota.n1}</span>
                                                 </td>
-                                                <td>
+                                                <td data-label="2ª Nota">
                                                     <span className={styles.gradePill}>{nota.n2}</span>
                                                 </td>
-                                                <td>
+                                                <td data-label="3ª Nota">
                                                     <span className={styles.gradePill}>{nota.n3}</span>
                                                 </td>
                                                 <td>
