@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4a3b32"/>
+      <stop offset="100%" stop-color="#1e1b18"/>
+    </radialGradient>
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8d5538"/>
+      <stop offset="100%" stop-color="#734226"/>
+    </linearGradient>
+    <linearGradient id="hairGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1c1917"/>
+      <stop offset="100%" stop-color="#0c0a09"/>
+    </linearGradient>
+    <linearGradient id="shirtGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e11d48"/>
+      <stop offset="100%" stop-color="#be123c"/>
+    </linearGradient>
+    <clipPath id="circleClip">
+      <circle cx="100" cy="100" r="100"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#circleClip)">
+    <!-- Background wall & soft ambient room -->
+    <rect width="200" height="200" fill="url(#bgGrad)"/>
+    <circle cx="160" cy="50" r="40" fill="#f59e0b" opacity="0.15"/>
+    <circle cx="40" cy="140" r="50" fill="#10b981" opacity="0.1"/>
+
+    <!-- Voluminous Afro/Curly Hair - Back -->
+    <circle cx="100" cy="90" r="62" fill="url(#hairGrad)"/>
+    <circle cx="60" cy="85" r="32" fill="url(#hairGrad)"/>
+    <circle cx="140" cy="85" r="32" fill="url(#hairGrad)"/>
+    <circle cx="50" cy="115" r="26" fill="url(#hairGrad)"/>
+    <circle cx="150" cy="115" r="26" fill="url(#hairGrad)"/>
+    <circle cx="70" cy="60" r="28" fill="url(#hairGrad)"/>
+    <circle cx="130" cy="60" r="28" fill="url(#hairGrad)"/>
+    <circle cx="100" cy="50" r="30" fill="url(#hairGrad)"/>
+
+    <!-- Headband / Headset Arc -->
+    <path d="M 52 92 C 52 46, 148 46, 148 92" fill="none" stroke="#27272a" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="50" cy="94" r="10" fill="#e11d48"/>
+    <circle cx="150" cy="94" r="10" fill="#e11d48"/>
+
+    <!-- Neck -->
+    <rect x="88" y="125" width="24" height="30" rx="6" fill="url(#skinGrad)"/>
+
+    <!-- Shoulders & Coral Shirt -->
+    <path d="M 40 185 C 40 150, 70 142, 100 142 C 130 142, 160 150, 160 185 L 160 210 L 40 210 Z" fill="url(#shirtGrad)"/>
+    
+    <!-- Shirt Collar/V-neck detail -->
+    <polygon points="100,162 86,142 114,142" fill="url(#skinGrad)"/>
+    
+    <!-- Face -->
+    <ellipse cx="100" cy="104" rx="30" ry="34" fill="url(#skinGrad)"/>
+
+    <!-- Eyebrows -->
+    <path d="M 80 92 Q 88 88 94 92" fill="none" stroke="#1c1917" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 106 92 Q 112 88 120 92" fill="none" stroke="#1c1917" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Eyes (Warm & expressive) -->
+    <ellipse cx="87" cy="99" rx="4.5" ry="5" fill="#1c1917"/>
+    <ellipse cx="113" cy="99" rx="4.5" ry="5" fill="#1c1917"/>
+    <circle cx="89" cy="97" r="1.5" fill="#ffffff"/>
+    <circle cx="115" cy="97" r="1.5" fill="#ffffff"/>
+
+    <!-- Glasses Frame (Modern Stylish Oval) -->
+    <rect x="74" y="90" width="24" height="18" rx="6" fill="none" stroke="#d97706" stroke-width="2.5"/>
+    <rect x="102" y="90" width="24" height="18" rx="6" fill="none" stroke="#d97706" stroke-width="2.5"/>
+    <line x1="98" y1="97" x2="102" y2="97" stroke="#d97706" stroke-width="2.5"/>
+
+    <!-- Nose -->
+    <path d="M 100 102 L 98 112 L 103 112" fill="none" stroke="#5c341e" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Smile / Lips -->
+    <path d="M 90 120 Q 100 128 110 120" fill="none" stroke="#991b1b" stroke-width="3" stroke-linecap="round"/>
+    <path d="M 93 121 Q 100 125 107 121" fill="#ffffff"/>
+
+    <!-- Laptop edge in foreground -->
+    <path d="M 30 192 L 170 192 L 160 210 L 40 210 Z" fill="#94a3b8"/>
+    <rect x="75" y="196" width="50" height="4" rx="2" fill="#cbd5e1"/>
+  </g>
+</svg>
+

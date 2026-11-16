@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="codeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#181c28"/>
+      <stop offset="100%" stop-color="#0f111a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="400" height="240" rx="6" fill="url(#codeBg)"/>
+  
+  <!-- Editor Window Header -->
+  <rect width="400" height="30" rx="6" fill="#202536"/>
+  <circle cx="20" cy="15" r="4.5" fill="#ef4444"/>
+  <circle cx="36" cy="15" r="4.5" fill="#f59e0b"/>
+  <circle cx="52" cy="15" r="4.5" fill="#10b981"/>
+  <text x="75" y="19" fill="#94a3b8" font-family="monospace" font-size="11">component.jsx</text>
+
+  <!-- Left Sidebar Mini -->
+  <rect x="0" y="30" width="45" height="210" fill="#141722"/>
+  <circle cx="22" cy="50" r="6" fill="#3b82f6" opacity="0.6"/>
+  <circle cx="22" cy="75" r="6" fill="#64748b" opacity="0.4"/>
+  <circle cx="22" cy="100" r="6" fill="#64748b" opacity="0.4"/>
+
+  <!-- Code lines -->
+  <g font-family="monospace" font-size="10" xml:space="preserve">
+    <text x="60" y="55">
+      <tspan fill="#ec4899">import</tspan> <tspan fill="#38bdf8">React</tspan><tspan fill="#94a3b8">, { </tspan><tspan fill="#f59e0b">useState</tspan><tspan fill="#94a3b8"> } </tspan><tspan fill="#ec4899">from</tspan> <tspan fill="#22c55e">'react'</tspan><tspan fill="#94a3b8">;</tspan>
+    </text>
+    <text x="60" y="75">
+      <tspan fill="#ec4899">export default function</tspan> <tspan fill="#60a5fa">Card</tspan><tspan fill="#94a3b8">({ </tspan><tspan fill="#f87171">title</tspan><tspan fill="#94a3b8">, </tspan><tspan fill="#f87171">desc</tspan><tspan fill="#94a3b8"> }) {</tspan>
+    </text>
+    <text x="75" y="95">
+      <tspan fill="#ec4899">const</tspan> <tspan fill="#94a3b8">[</tspan><tspan fill="#f8fafc">active</tspan><tspan fill="#94a3b8">, </tspan><tspan fill="#f8fafc">setActive</tspan><tspan fill="#94a3b8">] = </tspan><tspan fill="#60a5fa">useState</tspan><tspan fill="#94a3b8">(</tspan><tspan fill="#f59e0b">false</tspan><tspan fill="#94a3b8">);</tspan>
+    </text>
+    <text x="75" y="115">
+      <tspan fill="#ec4899">return</tspan> <tspan fill="#94a3b8">(</tspan>
+    </text>
+    <text x="90" y="135">
+      <tspan fill="#38bdf8">&lt;div</tspan> <tspan fill="#f59e0b">className</tspan><tspan fill="#94a3b8">=</tspan><tspan fill="#22c55e">"card-container"</tspan><tspan fill="#38bdf8">&gt;</tspan>
+    </text>
+    <text x="105" y="155">
+      <tspan fill="#38bdf8">&lt;h3&gt;</tspan><tspan fill="#f8fafc">{title}</tspan><tspan fill="#38bdf8">&lt;/h3&gt;</tspan>
+    </text>
+    <text x="105" y="175">
+      <tspan fill="#38bdf8">&lt;p&gt;</tspan><tspan fill="#f8fafc">{desc}</tspan><tspan fill="#38bdf8">&lt;/p&gt;</tspan>
+    </text>
+    <text x="90" y="195">
+      <tspan fill="#38bdf8">&lt;/div&gt;</tspan>
+    </text>
+    <text x="75" y="215">
+      <tspan fill="#94a3b8">);</tspan>
+    </text>
+    <text x="60" y="232">
+      <tspan fill="#94a3b8">}</tspan>
+    </text>
+  </g>
+</svg>
+

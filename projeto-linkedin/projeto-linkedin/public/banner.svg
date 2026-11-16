@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141824"/>
+      <stop offset="50%" stop-color="#10131d"/>
+      <stop offset="100%" stop-color="#0c0e17"/>
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.15"/>
+      <stop offset="50%" stop-color="#a855f7" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#ec4899" stop-opacity="0.1"/>
+    </linearGradient>
+    <filter id="blurFilter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="30" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="300" fill="url(#bgGrad)"/>
+  
+  <!-- Ambient glows in the background -->
+  <circle cx="200" cy="150" r="140" fill="#38bdf8" opacity="0.08" filter="url(#blurFilter)"/>
+  <circle cx="700" cy="80" r="180" fill="#a855f7" opacity="0.08" filter="url(#blurFilter)"/>
+  <circle cx="1000" cy="220" r="160" fill="#ec4899" opacity="0.06" filter="url(#blurFilter)"/>
+
+  <!-- Left Sidebar (Explorer Tree) -->
+  <rect x="20" y="20" width="180" height="260" rx="8" fill="#181c2b" fill-opacity="0.7" stroke="#2a334d" stroke-width="1"/>
+  
+  <!-- Tree items -->
+  <!-- Folder: public -->
+  <path d="M 40 45 L 46 45 L 49 48 L 65 48 L 65 57 L 40 57 Z" fill="#94a3b8"/>
+  <text x="72" y="55" fill="#cbd5e1" font-family="monospace" font-size="12">public</text>
+
+  <!-- Folder: src (expanded) -->
+  <path d="M 36 75 L 42 81 L 48 75" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+  <path d="M 52 70 L 58 70 L 61 73 L 77 73 L 77 82 L 52 82 Z" fill="#38bdf8"/>
+  <text x="84" y="80" fill="#f8fafc" font-family="monospace" font-size="12" font-weight="bold">src</text>
+
+  <!-- File: app.scss -->
+  <circle cx="68" cy="102" r="4" fill="#ec4899"/>
+  <text x="84" y="106" fill="#f472b6" font-family="monospace" font-size="12">app.scss</text>
+
+  <!-- File: App.svelte -->
+  <circle cx="68" cy="128" r="4" fill="#f97316"/>
+  <text x="84" y="132" fill="#fb923c" font-family="monospace" font-size="12">App.svelte</text>
+
+  <!-- File: Column.svelte -->
+  <circle cx="68" cy="154" r="4" fill="#f97316"/>
+  <text x="84" y="158" fill="#fb923c" font-family="monospace" font-size="12">Column.svelte</text>
+
+  <!-- File: Card.svelte -->
+  <circle cx="68" cy="180" r="4" fill="#f97316"/>
+  <text x="84" y="184" fill="#94a3b8" font-family="monospace" font-size="12">Card.svelte</text>
+
+  <!-- File: main.js -->
+  <circle cx="68" cy="206" r="4" fill="#eab308"/>
+  <text x="84" y="210" fill="#fde047" font-family="monospace" font-size="12">main.js</text>
+
+  <!-- Main Code Editor Frame -->
+  <rect x="220" y="20" width="960" height="260" rx="8" fill="#131622" fill-opacity="0.85" stroke="#2a334d" stroke-width="1"/>
+  
+  <!-- Editor Tabs Bar -->
+  <path d="M 220 20 L 1180 20 L 1180 56 L 220 56 Z" fill="#181c2b" fill-opacity="0.9"/>
+  <line x1="220" y1="56" x2="1180" y2="56" stroke="#2a334d" stroke-width="1"/>
+
+  <!-- Active Tab: App.svelte -->
+  <rect x="230" y="26" width="130" height="30" rx="4" fill="#131622"/>
+  <circle cx="245" cy="41" r="3.5" fill="#f97316"/>
+  <text x="256" y="45" fill="#f8fafc" font-family="monospace" font-size="12" font-weight="600">App.svelte</text>
+  <text x="345" y="44" fill="#64748b" font-family="sans-serif" font-size="11">×</text>
+
+  <!-- Tab 2: Column.svelte -->
+  <rect x="366" y="26" width="140" height="30" rx="4" fill="transparent"/>
+  <circle cx="380" cy="41" r="3.5" fill="#f97316"/>
+  <text x="392" y="45" fill="#94a3b8" font-family="monospace" font-size="12">Column.svelte</text>
+  <text x="492" y="44" fill="#64748b" font-family="sans-serif" font-size="11">×</text>
+
+  <!-- Tab 3: app.scss -->
+  <rect x="512" y="26" width="115" height="30" rx="4" fill="transparent"/>
+  <circle cx="525" cy="41" r="3.5" fill="#ec4899"/>
+  <text x="537" y="45" fill="#94a3b8" font-family="monospace" font-size="12">app.scss</text>
+  <text x="613" y="44" fill="#64748b" font-family="sans-serif" font-size="11">×</text>
+
+  <!-- Code Area - Line Numbers -->
+  <g fill="#475569" font-family="monospace" font-size="12" text-anchor="end">
+    <text x="250" y="80">1</text>
+    <text x="250" y="100">2</text>
+    <text x="250" y="120">3</text>
+    <text x="250" y="140">4</text>
+    <text x="250" y="160">5</text>
+    <text x="250" y="180">6</text>
+    <text x="250" y="200">7</text>
+    <text x="250" y="220">8</text>
+    <text x="250" y="240">9</text>
+    <text x="250" y="260">10</text>
+  </g>
+
+  <!-- Code Syntax Highlighting -->
+  <g font-family="monospace" font-size="12.5" xml:space="preserve">
+    <!-- Line 1 -->
+    <text x="270" y="80">
+      <tspan fill="#f43f5e">&lt;</tspan><tspan fill="#ec4899">script</tspan><tspan fill="#f43f5e">&gt;</tspan>
+    </text>
+    <!-- Line 2 -->
+    <text x="290" y="100">
+      <tspan fill="#a855f7">import</tspan> <tspan fill="#38bdf8">Column</tspan> <tspan fill="#a855f7">from</tspan> <tspan fill="#22c55e">'./Column.svelte'</tspan><tspan fill="#94a3b8">;</tspan>
+    </text>
+    <!-- Line 3 -->
+    <text x="290" y="120">
+      <tspan fill="#a855f7">import</tspan> <tspan fill="#94a3b8">{</tspan> <tspan fill="#38bdf8">items</tspan><tspan fill="#94a3b8">, </tspan><tspan fill="#38bdf8">addCard</tspan> <tspan fill="#94a3b8">}</tspan> <tspan fill="#a855f7">from</tspan> <tspan fill="#22c55e">'./store.js'</tspan><tspan fill="#94a3b8">;</tspan>
+    </text>
+    <!-- Line 4 -->
+    <text x="290" y="140">
+      <tspan fill="#38bdf8">let</tspan> <tspan fill="#f8fafc">columns</tspan> <tspan fill="#f43f5e">=</tspan> <tspan fill="#94a3b8">[</tspan><tspan fill="#22c55e">'Backlog'</tspan><tspan fill="#94a3b8">, </tspan><tspan fill="#22c55e">'In Progress'</tspan><tspan fill="#94a3b8">, </tspan><tspan fill="#22c55e">'Done'</tspan><tspan fill="#94a3b8">];</tspan>
+    </text>
+    <!-- Line 5 -->
+    <text x="270" y="160">
+      <tspan fill="#f43f5e">&lt;/</tspan><tspan fill="#ec4899">script</tspan><tspan fill="#f43f5e">&gt;</tspan>
+    </text>
+    <!-- Line 6 -->
+    <text x="270" y="180">
+      <tspan fill="#f43f5e">&lt;</tspan><tspan fill="#38bdf8">main</tspan> <tspan fill="#fbbf24">class</tspan><tspan fill="#f43f5e">=</tspan><tspan fill="#22c55e">"kanban-board"</tspan><tspan fill="#f43f5e">&gt;</tspan>
+    </text>
+    <!-- Line 7 -->
+    <text x="290" y="200">
+      <tspan fill="#f43f5e">{#</tspan><tspan fill="#ec4899">each</tspan> <tspan fill="#f8fafc">columns</tspan> <tspan fill="#a855f7">as</tspan> <tspan fill="#38bdf8">col</tspan><tspan fill="#f43f5e">}</tspan>
+    </text>
+    <!-- Line 8 -->
+    <text x="310" y="220">
+      <tspan fill="#f43f5e">&lt;</tspan><tspan fill="#38bdf8">Column</tspan> <tspan fill="#fbbf24">name</tspan><tspan fill="#f43f5e">=</tspan><tspan fill="#94a3b8">{</tspan><tspan fill="#38bdf8">col</tspan><tspan fill="#94a3b8">}</tspan> <tspan fill="#fbbf24">items</tspan><tspan fill="#f43f5e">=</tspan><tspan fill="#94a3b8">{</tspan><tspan fill="#38bdf8">$items</tspan><tspan fill="#94a3b8">}</tspan> <tspan fill="#f43f5e">/&gt;</tspan>
+    </text>
+    <!-- Line 9 -->
+    <text x="290" y="240">
+      <tspan fill="#f43f5e">{/</tspan><tspan fill="#ec4899">each</tspan><tspan fill="#f43f5e">}</tspan>
+    </text>
+    <!-- Line 10 -->
+    <text x="270" y="260">
+      <tspan fill="#f43f5e">&lt;/</tspan><tspan fill="#38bdf8">main</tspan><tspan fill="#f43f5e">&gt;</tspan>
+    </text>
+  </g>
+
+  <!-- Right side decorative blurred code preview -->
+  <g opacity="0.35" transform="translate(780, 75)" font-family="monospace" font-size="11">
+    <text y="20" fill="#38bdf8">const fetchProfile = async (id) =&gt; {</text>
+    <text y="40" fill="#a855f7">  const res = await api.get(`/users/${id}`);</text>
+    <text y="60" fill="#22c55e">  return res.data.profile;</text>
+    <text y="80" fill="#38bdf8">};</text>
+    <text y="110" fill="#fbbf24">export default function Dashboard() {</text>
+    <text y="130" fill="#f472b6">  const [data, setData] = useState(null);</text>
+    <text y="150" fill="#a855f7">  return &lt;ProfileView data={data} /&gt;;</text>
+    <text y="170" fill="#fbbf24">}</text>
+  </g>
+</svg>
+

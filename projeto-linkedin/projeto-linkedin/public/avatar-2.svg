@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <circle cx="50" cy="50" r="50" fill="#1e293b"/>
+  <circle cx="50" cy="40" r="20" fill="#f6ad55"/>
+  <path d="M 22 88 C 22 68, 35 62, 50 62 C 65 62, 78 68, 78 88 Z" fill="#0284c7"/>
+  <circle cx="43" cy="38" r="2.5" fill="#0f172a"/>
+  <circle cx="57" cy="38" r="2.5" fill="#0f172a"/>
+  <path d="M 45 48 Q 50 53 55 48" stroke="#0f172a" stroke-width="2" fill="none"/>
+  <!-- Short hair -->
+  <path d="M 30 36 C 30 20, 70 20, 70 36 Z" fill="#451a03"/>
+</svg>
+
